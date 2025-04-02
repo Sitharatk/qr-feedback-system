@@ -9,9 +9,9 @@ function ReviewPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const feedbackData = { rating, comment };
-
+  
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback/submit`, {
         method: "POST",
@@ -20,13 +20,13 @@ function ReviewPage() {
         },
         body: JSON.stringify(feedbackData),
       });
-
+  
       const data = await response.json();
       if (response.ok) {
         setMessage("Feedback submitted successfully!");
         setRating(5);
         setComment("");
-        setSubmitted(true);
+        setSubmitted(true); // Show "Thank you!"
       } else {
         setMessage(data.message || "Something went wrong.");
       }
@@ -34,6 +34,7 @@ function ReviewPage() {
       setMessage("Error submitting feedback. Please try again.");
     }
   };
+  
 
   if (submitted) {
     return (

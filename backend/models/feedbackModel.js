@@ -5,10 +5,6 @@ const feedbackSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-      },
-      qrCodeId: {
-        type: String,
-        required: true
       }
     });
  
