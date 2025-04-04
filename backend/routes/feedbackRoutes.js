@@ -4,6 +4,6 @@ import { submitFeedback, getFeedbacks } from "../controllers/feedbackControllers
 const router = express.Router();
 
 router.post("/submit", submitFeedback); // Submit feedback
-router.get("/", getFeedbacks); // Get all feedback
+router.get("/all", getFeedbacks); // Get all feedback
 
 export default router;

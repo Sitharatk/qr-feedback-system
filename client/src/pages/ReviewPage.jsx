@@ -9,7 +9,6 @@ function ReviewPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
     const feedbackData = { rating, comment };
   
     try {
@@ -22,15 +21,19 @@ function ReviewPage() {
       });
   
       const data = await response.json();
+      
       if (response.ok) {
+    
         setMessage("Feedback submitted successfully!");
         setRating(5);
         setComment("");
-        setSubmitted(true); // Show "Thank you!"
+        setSubmitted(true);
       } else {
+
         setMessage(data.message || "Something went wrong.");
       }
     } catch (error) {
+     
       setMessage("Error submitting feedback. Please try again.");
     }
   };
@@ -38,7 +41,7 @@ function ReviewPage() {
 
   if (submitted) {
     return (
-      <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+      <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-50">
         <h2 className="text-2xl font-bold text-green-600 mb-4">Thank you!</h2>
         <p className="text-gray-700">We appreciate your feedback.</p>
       </div>
