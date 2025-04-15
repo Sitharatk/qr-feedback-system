@@ -10,7 +10,7 @@ function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -24,7 +24,8 @@ function AdminLogin() {
         setError(data.message || "Login failed");
       }
     } catch (error) {
-      setError("Error logging in");
+      console.error("Login error:", error);
+      setError(`Error logging in: ${error.message}`);
     }
   };
 
