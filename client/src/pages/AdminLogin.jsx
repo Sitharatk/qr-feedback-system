@@ -30,18 +30,43 @@ function AdminLogin() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form onSubmit={handleLogin} className="p-6 bg-white rounded shadow-md">
-        <h2 className="text-2xl mb-4">Admin Login</h2>
-        {error && <p className="text-red-500">{error}</p>}
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
-          className="border p-2 mb-2 w-full" required />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}
-          className="border p-2 mb-2 w-full" required />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2">Login</button>
-      </form>
-    </div>
-  );
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <form 
+      onSubmit={handleLogin} 
+      className="w-full max-w-sm p-8 bg-white rounded-2xl shadow-lg space-y-6"
+    >
+      <h2 className="text-3xl font-bold text-center text-gray-800">Admin Login</h2>
+
+      {error && <p className="text-red-500 text-center">{error}</p>}
+
+      <div className="space-y-4">
+        <input 
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+          required 
+        />
+        <input 
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+          required 
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        className="w-full py-3 mt-4 bg-blue-500 hover:bg-blue-600 transition-colors text-white font-semibold rounded-lg"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+);
 }
 
 export default AdminLogin;
